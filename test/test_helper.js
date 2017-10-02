@@ -1,5 +1,3 @@
-import {JSDOM} from 'jsdom';
-
 import jquery from 'jquery';
 import TestUtils from 'react-dom/test-utils';
 import ReactDOM from 'react-dom';
@@ -11,12 +9,7 @@ import reducers from '../src/reducers';
 import chaiJquery from 'chai-jquery';
 
 // Set up testing environment to run like a browser in the command line
-// global.document = new JSDOM('<!doctype html><html><body></body></html>');
-// global.window = global.document.defaultView;
-const globalDom = new JSDOM('<!doctype html><html><body></body></html>');
-global.window = globalDom.window;
-global.document = global.window.document;
-const $ = jquery(global.window);
+const $ = jquery;
 
 // build 'renderComponent' helper that should render a given react class
 function renderComponent(ComponentClass, props, state) {
